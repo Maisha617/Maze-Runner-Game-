@@ -1,0 +1,126 @@
+[gd_scene format=3 uid="uid://bdkxydktsi4mo"]
+
+[ext_resource type="PackedScene" uid="uid://ppxqxaxfu5hl" path="res://Scenes/MazeModel.tscn" id="1_3hnbd"]
+[ext_resource type="Texture2D" uid="uid://jj83b8peond3" path="res://Stone_Tile/Stone_Tile1-PNG_Color.png" id="2_56krf"]
+[ext_resource type="PackedScene" uid="uid://byrh3ow85yemy" path="res://Scenes/player.tscn" id="2_gjion"]
+[ext_resource type="Script" uid="uid://bswpajvkbu5iy" path="res://Scripts/player.gd" id="3_c0q54"]
+[ext_resource type="Texture2D" uid="uid://dht1d01rh7vw5" path="res://Stone_Tile/Stone_Tile1-PNG_NormalGL.png" id="3_gj25p"]
+[ext_resource type="Texture2D" uid="uid://cflk2i0fxughk" path="res://Stone_Tile/Stone_Tile1-PNG_Roughness.png" id="4_06vh4"]
+[ext_resource type="Texture2D" uid="uid://8cit1aeetk1u" path="res://Grass_texture/Ground068_2K-PNG_Color.png" id="5_56krf"]
+[ext_resource type="Texture2D" uid="uid://danriaiysk6bh" path="res://Grass_texture/Ground068_2K-PNG_NormalGL.png" id="6_gj25p"]
+[ext_resource type="Texture2D" uid="uid://bdmpk317tnvuf" path="res://Grass_texture/Ground068_2K-PNG_Roughness.png" id="7_06vh4"]
+[ext_resource type="PackedScene" uid="uid://cxyrfo2kytiau" path="res://MazeRunnerMonsterModel.blend" id="10_gj25p"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hr7o0"]
+albedo_texture = ExtResource("2_56krf")
+roughness_texture = ExtResource("4_06vh4")
+normal_enabled = true
+normal_texture = ExtResource("3_gj25p")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c0q54"]
+albedo_color = Color(0.48767823, 0.5866718, 0.2661801, 1)
+albedo_texture = ExtResource("5_56krf")
+roughness_texture = ExtResource("7_06vh4")
+normal_enabled = true
+normal_texture = ExtResource("6_gj25p")
+uv1_scale = Vector3(60, 60, 60)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_hr7o0"]
+material = SubResource("StandardMaterial3D_c0q54")
+size = Vector2(1, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hr7o0"]
+size = Vector3(200, 0.01, 200)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7owdr"]
+size = Vector3(1, 1, 0.76854324)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wqixp"]
+size = Vector3(0.44812012, 1, 1)
+
+[sub_resource type="Sky" id="Sky_56krf"]
+
+[sub_resource type="Environment" id="Environment_gj25p"]
+background_mode = 2
+sky = SubResource("Sky_56krf")
+ambient_light_color = Color(1, 1, 1, 1)
+ambient_light_energy = 1.07
+fog_enabled = true
+fog_light_energy = 5.0
+
+[node name="Environment" type="Node2D" unique_id=1926856706]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1260050468]
+transform = Transform3D(-0.8660254, -0.4330128, 0.25000006, 0, 0.49999997, 0.86602545, -0.5000001, 0.75, -0.43301266, 0, 205.48618, 0)
+light_energy = 3.0
+light_indirect_energy = 2.142
+sky_mode = 1
+
+[node name="Maze Model" parent="." unique_id=205124536 instance=ExtResource("1_3hnbd")]
+
+[node name="bottomleft2" parent="Maze Model/Walls" parent_id_path=PackedInt32Array(205124536, 1614257654) index="0" unique_id=1734143444]
+material = SubResource("StandardMaterial3D_hr7o0")
+
+[node name="topright2" parent="Maze Model/Walls" parent_id_path=PackedInt32Array(205124536, 1614257654) index="2" unique_id=598434543]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 100.5, -38.99445, 58.500004)
+
+[node name="bottomright2" parent="Maze Model/Walls" parent_id_path=PackedInt32Array(205124536, 1614257654) index="3" unique_id=42779583]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 100.5, -38.754177, -57.5)
+
+[node name="DirectionalLight3D" parent="Maze Model" index="4" unique_id=544195134]
+shadow_enabled = true
+shadow_opacity = 0.24
+shadow_blur = 5.191
+
+[node name="Grassy Ground" type="MeshInstance3D" parent="." unique_id=1307279556]
+transform = Transform3D(100, 0, 0, 0, 200, 0, 0, 0, 205, 149.89746, -0.2267108, 0.5038996)
+mesh = SubResource("PlaneMesh_hr7o0")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Grassy Ground" unique_id=2134328887]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Grassy Ground/StaticBody3D" unique_id=489330463]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.019248366, 0, 0)
+shape = SubResource("BoxShape3D_hr7o0")
+
+[node name="invisible wall 1" type="StaticBody3D" parent="Grassy Ground" unique_id=972679548]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.50146437)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Grassy Ground/invisible wall 1" unique_id=2067986730]
+transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 1, 0, 0, 0.3868332)
+shape = SubResource("BoxShape3D_7owdr")
+
+[node name="invisible wall 3" type="StaticBody3D" parent="Grassy Ground" unique_id=500460514]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.49493343)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Grassy Ground/invisible wall 3" unique_id=1970989282]
+transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 1, 0, 0, -0.37662622)
+shape = SubResource("BoxShape3D_7owdr")
+
+[node name="invisible wall 2" type="StaticBody3D" parent="Grassy Ground" unique_id=1983424059]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49758148, 0, 0.03183389)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Grassy Ground/invisible wall 2" unique_id=722365531]
+transform = Transform3D(2, 0, 0, 0, 100, 0, 0, 0, 105, 0.43572724, 0, -0.028356044)
+shape = SubResource("BoxShape3D_wqixp")
+
+[node name="player" parent="." unique_id=1965834822 instance=ExtResource("2_gjion")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 143.045, 0.6, 0)
+script = ExtResource("3_c0q54")
+
+[node name="MeshInstance3D" parent="player" index="2" unique_id=633262565]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.9666933, 0)
+
+[node name="Camera3D" parent="player/Player\'s Head" parent_id_path=PackedInt32Array(1965834822, 656417936) index="0" unique_id=1464402372]
+current = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1510531194]
+environment = SubResource("Environment_gj25p")
+
+[node name="player2" parent="." unique_id=936381191 instance=ExtResource("2_gjion")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6714.2217, -4612.786, 11.991146)
+
+[node name="MazeRunnerMonsterModel" parent="." unique_id=211379946 instance=ExtResource("10_gj25p")]
+transform = Transform3D(-0.597482, 0, 1.9086684, 0, 2, 0, -1.9086684, 0, -0.597482, -91.29551, -1.7275081, -83.797485)
+
+[editable path="Maze Model"]
+[editable path="player"]

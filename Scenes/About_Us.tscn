@@ -1,0 +1,130 @@
+[gd_scene format=3 uid="uid://hmq3hmow7pl4"]
+
+[sub_resource type="FontFile" id="FontFile_hwkfr"]
+cache/0/variation_coordinates = {}
+cache/0/face_index = 0
+cache/0/embolden = 0.0
+cache/0/transform = Transform2D(1, 0, 0, 1, 0, 0)
+cache/0/spacing_top = 0
+cache/0/spacing_bottom = 0
+cache/0/spacing_space = 0
+cache/0/spacing_glyph = 0
+cache/0/baseline_offset = 0.0
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/40/0/ascent = 0.0
+cache/0/40/0/descent = 0.0
+cache/0/40/0/underline_position = 0.0
+cache/0/40/0/underline_thickness = 0.0
+cache/0/40/0/scale = 1.0
+
+[node name="AboutUs" type="Control" unique_id=29361438]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 7.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=474921123]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -4.0
+offset_right = 706.0
+offset_bottom = 3.0
+mouse_filter = 2
+color = Color(0.5649874, 0.47377205, 0.9523366, 1)
+
+[node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=1383424575]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1132.0
+offset_bottom = 84.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="ScrollContainer" unique_id=1883766471]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 40
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/MarginContainer" unique_id=475680555]
+layout_direction = 2
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="Title" type="Label" parent="ScrollContainer/MarginContainer/VBoxContainer" unique_id=1208646972]
+clip_contents = true
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = SubResource("FontFile_hwkfr")
+theme_override_font_sizes/font_size = 40
+text = "About Us"
+
+[node name="pitch" type="Label" parent="ScrollContainer/MarginContainer/VBoxContainer" unique_id=2008665193]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 29
+text = "
+\"Maze Runner: Navigate. Survive. Escape. Imagine being trapped in a 3D maze where every pathway could lead to freedom
+—or danger. In Maze Runner, players face mini-games, monsters, and puzzles in a thrilling first-person escape adventure. 
+With checkpoint saves and multiple pathways, every choice matters. Will you find your way out?\""
+vertical_alignment = 3
+
+[node name="teamheader" type="Label" parent="ScrollContainer/MarginContainer/VBoxContainer" unique_id=126746318]
+layout_mode = 2
+theme_override_font_sizes/font_size = 29
+text = "
+The Team Of Queens"
+
+[node name="Maisha" type="Label" parent="ScrollContainer/MarginContainer/VBoxContainer" unique_id=1470491688]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 29
+text = "
+Maisha Rahman is our model designer, she worked on adding textures to our maze, implementing the sound effects, and really 
+making the whole visuals for our game."
+
+[node name="Bianca" type="Label" parent="ScrollContainer/MarginContainer/VBoxContainer" unique_id=644742328]
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+text = "
+Bianca Butler is our technical designer who built the maze, created and implemented the monster, and added its animations. Like the 
+rest of the team, she did an amazing job on the game."
+
+[node name="Janiyah" type="Label" parent="ScrollContainer/MarginContainer/VBoxContainer" unique_id=531368603]
+layout_mode = 2
+theme_override_font_sizes/font_size = 26
+text = "
+Janiyah Lizzimore is our character developer/ gamer programmer working on creating the main menu for our game, helping to scale our player 
+character and create it. She contributed to the making of our amazing game."
+
+[node name="Ashvi" type="Label" parent="ScrollContainer/MarginContainer/VBoxContainer" unique_id=856456250]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "
+Ashvi Jain is our character developer/ gamer programmer working on mini games, the scaling of our character, creating our character and many more 
+amazing things to create our amazing game."
+
+[node name="BackButton" type="Button" parent="." unique_id=1628220020]
+layout_mode = 0
+offset_left = 1738.0
+offset_top = 8.0
+offset_right = 1845.0
+offset_bottom = 90.0
+theme_override_font_sizes/font_size = 43
+text = "Back"
+
+[connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]

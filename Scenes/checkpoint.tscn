@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://bm0qnyeiy6w5v"]
+
+[ext_resource type="Script" uid="uid://s6meqwqissxg" path="res://Scripts/checkpoint.gd" id="1_s8sl4"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8hety"]
+
+[node name="checkpoint" type="Node3D" unique_id=1593391023]
+script = ExtResource("1_s8sl4")
+
+[node name="Area3D" type="Area3D" parent="." unique_id=2019444171]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1298140899]
+shape = SubResource("BoxShape3D_8hety")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

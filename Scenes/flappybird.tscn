@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://cx1jkbxry3260"]
+
+[ext_resource type="Script" uid="uid://kt5p0xkbvt4j" path="res://Scripts/flappybird.gd" id="1_7hkq0"]
+[ext_resource type="AudioStream" uid="uid://bcqltmlgub3ok" path="res://Sounds/Flappy_Bird_Click.wav" id="2_m4ccd"]
+[ext_resource type="Texture2D" path="res://Textures/flappybirdBG.png.import" id="2_u121h"]
+[ext_resource type="AudioStream" uid="uid://dpqc1uwy12wm6" path="res://Sounds/Game_Over.wav" id="3_ndxr5"]
+[ext_resource type="AudioStream" uid="uid://th08vsq4ukft" path="res://Sounds/Game_Victory_Long.wav" id="4_ndxr5"]
+
+[node name="Flappybird" type="Node2D" unique_id=164522407]
+script = ExtResource("1_7hkq0")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=608581510]
+z_index = -2
+offset_left = -7061.0
+offset_top = -5207.0
+offset_right = 7664.0
+offset_bottom = 5270.0
+texture = ExtResource("2_u121h")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="Click_Sound" type="AudioStreamPlayer2D" parent="." unique_id=931369244]
+stream = ExtResource("2_m4ccd")
+
+[node name="Game_Over_Sound" type="AudioStreamPlayer2D" parent="." unique_id=998280626]
+stream = ExtResource("3_ndxr5")
+
+[node name="Game_Win_Sound" type="AudioStreamPlayer2D" parent="." unique_id=1658137666]
+stream = ExtResource("4_ndxr5")

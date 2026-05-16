@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://dumhjwp3nuhh0"]
+
+[node name="world" type="Node3D" unique_id=1950358536]
+transform = Transform3D(0.99993664, 0, 0.011257136, 0, 1, 0, -0.011257136, 0, 0.99993664, 0, 0, 0)
+metadata/_edit_lock_ = true
+
+[node name="floor" type="StaticBody3D" parent="." unique_id=1885365563]

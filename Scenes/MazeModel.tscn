@@ -1,0 +1,171 @@
+[gd_scene format=3 uid="uid://ppxqxaxfu5hl"]
+
+[ext_resource type="Texture2D" uid="uid://ognx5phmbbsm" path="res://Textures/First_Level_Textures/Maze_Floor_Texture/Rock010_2K-PNG_Color.png" id="1_f2gf6"]
+[ext_resource type="Texture2D" uid="uid://ddu1w1gdk61nx" path="res://Textures/First_Level_Textures/Maze_Floor_Texture/Rock010_2K-PNG_NormalGL.png" id="2_gh04v"]
+[ext_resource type="Texture2D" uid="uid://x0gyjex4yy0" path="res://Textures/First_Level_Textures/Maze_Floor_Texture/Rock010_2K-PNG_Roughness.png" id="3_qd1hc"]
+[ext_resource type="Texture2D" uid="uid://jj83b8peond3" path="res://Textures/First_Level_Textures/Stone_Tile/Stone_Tile1-PNG_Color.png" id="4_7if5l"]
+[ext_resource type="Texture2D" uid="uid://dht1d01rh7vw5" path="res://Textures/First_Level_Textures/Stone_Tile/Stone_Tile1-PNG_NormalGL.png" id="5_0xq38"]
+[ext_resource type="Texture2D" uid="uid://cflk2i0fxughk" path="res://Textures/First_Level_Textures/Stone_Tile/Stone_Tile1-PNG_Roughness.png" id="6_w32sn"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7fnq8"]
+albedo_color = Color(0.14608663, 0.20411247, 0.10612013, 1)
+albedo_texture = ExtResource("1_f2gf6")
+roughness_texture = ExtResource("3_qd1hc")
+normal_enabled = true
+normal_texture = ExtResource("2_gh04v")
+uv1_scale = Vector3(7, 7, 7)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7if5l"]
+albedo_texture = ExtResource("4_7if5l")
+roughness_texture = ExtResource("6_w32sn")
+normal_enabled = true
+normal_texture = ExtResource("5_0xq38")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0ow6a"]
+albedo_texture = ExtResource("4_7if5l")
+roughness_texture = ExtResource("6_w32sn")
+normal_enabled = true
+normal_texture = ExtResource("5_0xq38")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sceiw"]
+albedo_texture = ExtResource("4_7if5l")
+roughness_texture = ExtResource("6_w32sn")
+normal_enabled = true
+normal_texture = ExtResource("5_0xq38")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f2gf6"]
+albedo_texture = ExtResource("4_7if5l")
+roughness_texture = ExtResource("6_w32sn")
+normal_enabled = true
+normal_texture = ExtResource("5_0xq38")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gh04v"]
+albedo_texture = ExtResource("4_7if5l")
+roughness_texture = ExtResource("6_w32sn")
+normal_enabled = true
+normal_texture = ExtResource("5_0xq38")
+uv1_offset = Vector3(0, 10, 0)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8j4ix"]
+cull_mode = 2
+albedo_texture = ExtResource("4_7if5l")
+roughness_texture = ExtResource("6_w32sn")
+normal_enabled = true
+normal_texture = ExtResource("5_0xq38")
+uv1_triplanar_sharpness = 16.56423
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qd1hc"]
+albedo_texture = ExtResource("4_7if5l")
+roughness_texture = ExtResource("6_w32sn")
+normal_enabled = true
+normal_texture = ExtResource("5_0xq38")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i34g6"]
+albedo_texture = ExtResource("4_7if5l")
+roughness_texture = ExtResource("6_w32sn")
+normal_enabled = true
+normal_texture = ExtResource("5_0xq38")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xgv08"]
+albedo_texture = ExtResource("4_7if5l")
+roughness_texture = ExtResource("6_w32sn")
+normal_enabled = true
+normal_texture = ExtResource("5_0xq38")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r528b"]
+albedo_texture = ExtResource("4_7if5l")
+roughness_texture = ExtResource("6_w32sn")
+normal_enabled = true
+normal_texture = ExtResource("5_0xq38")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bm1or"]
+albedo_texture = ExtResource("4_7if5l")
+roughness_texture = ExtResource("6_w32sn")
+normal_enabled = true
+normal_texture = ExtResource("5_0xq38")
+
+[node name="Maze Model" type="Node3D" unique_id=205124536]
+
+[node name="Floor" type="CSGBox3D" parent="." unique_id=1777321393]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.05649185, -0.7827492, 1.120409)
+use_collision = true
+size = Vector3(200, 1, 200)
+material = SubResource("StandardMaterial3D_7fnq8")
+
+[node name="Walls" type="CSGCombiner3D" parent="." unique_id=1614257654]
+transform = Transform3D(1, 0, 0, 0, -1, 8.742278e-08, 0, -8.742278e-08, -1, 0, 0, 0)
+use_collision = true
+
+[node name="bottomleft2" type="CSGBox3D" parent="Walls" unique_id=1734143444]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -100.5, -39.502003, -57.5)
+size = Vector3(1, 80, 85)
+material = SubResource("StandardMaterial3D_7if5l")
+
+[node name="topleft2" type="CSGBox3D" parent="Walls" unique_id=1459892433]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -100.5, -39.502003, 57.500004)
+size = Vector3(1, 80, 85)
+material = SubResource("StandardMaterial3D_0ow6a")
+
+[node name="topright2" type="CSGBox3D" parent="Walls" unique_id=598434543]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 100.5, -39.502003, 58.500004)
+size = Vector3(1, 80, 85)
+material = SubResource("StandardMaterial3D_7if5l")
+
+[node name="bottomright2" type="CSGBox3D" parent="Walls" unique_id=42779583]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 100.5, -39.502003, -57.5)
+size = Vector3(1, 80, 85)
+material = SubResource("StandardMaterial3D_7if5l")
+
+[node name="Topleft1" type="CSGBox3D" parent="Walls" unique_id=106837766]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -58.499996, -39.502003, 98.90034)
+size = Vector3(1, 80, 85)
+material = SubResource("StandardMaterial3D_sceiw")
+
+[node name="topright1" type="CSGBox3D" parent="Walls" unique_id=1855155986]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 57.500004, -39.502003, 100.50001)
+size = Vector3(1, 80, 85)
+material = SubResource("StandardMaterial3D_f2gf6")
+
+[node name="bottomright1" type="CSGBox3D" parent="Walls" unique_id=38903918]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 58.500004, -39.502003, -100.5)
+size = Vector3(1, 80, 85)
+material = SubResource("StandardMaterial3D_gh04v")
+
+[node name="bottomleft1" type="CSGBox3D" parent="Walls" unique_id=687748547]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -58.499996, -39.502003, -100.5)
+size = Vector3(1, 80, 85)
+material = SubResource("StandardMaterial3D_8j4ix")
+
+[node name="Cubes" type="CSGCombiner3D" parent="." unique_id=1735015007]
+use_collision = true
+
+[node name="Corner Cube1" type="CSGBox3D" parent="Cubes" unique_id=1920957531]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 58.5, 40, -58.5)
+size = Vector3(50, 80, 50)
+material = SubResource("StandardMaterial3D_qd1hc")
+
+[node name="Corner Cube2" type="CSGBox3D" parent="Cubes" unique_id=11320749]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -58.5, 40, -58.5)
+size = Vector3(50, 80, 50)
+material = SubResource("StandardMaterial3D_i34g6")
+
+[node name="Corner Cube3" type="CSGBox3D" parent="Cubes" unique_id=1538905306]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -58.5, 40, 58.5)
+size = Vector3(50, 80, 50)
+material = SubResource("StandardMaterial3D_xgv08")
+
+[node name="Corner Cube4" type="CSGBox3D" parent="Cubes" unique_id=362654124]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 58.5, 40, 58.5)
+size = Vector3(50, 80, 50)
+material = SubResource("StandardMaterial3D_r528b")
+
+[node name="Center Cube" type="CSGBox3D" parent="Cubes" unique_id=1401034283]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 40, 0)
+size = Vector3(52, 80, 52)
+material = SubResource("StandardMaterial3D_bm1or")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=544195134]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 141.56805, 0)
+shadow_opacity = 0.62
+shadow_blur = 2.135
+sky_mode = 1

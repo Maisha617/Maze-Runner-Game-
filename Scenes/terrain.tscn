@@ -1,0 +1,80 @@
+[gd_scene format=4 uid="uid://cg4byxymk0jts"]
+
+[ext_resource type="Shader" uid="uid://bi3o8elbtqoni" path="res://addons/simplegrasstextured/shaders/grass.gdshader" id="1_pmkc2"]
+[ext_resource type="Texture2D" uid="uid://c4ggdp0kg5wjk" path="res://addons/simplegrasstextured/textures/grassbushcc008.png" id="2_hvvm8"]
+[ext_resource type="Script" uid="uid://2juaclm8gc1n" path="res://addons/simplegrasstextured/grass.gd" id="3_0ac8p"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_e1kr5"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("1_pmkc2")
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/texture_albedo = ExtResource("2_hvvm8")
+shader_parameter/texture_frames = Vector2(1, 1)
+shader_parameter/light_mode = 1
+shader_parameter/alpha_scissor_threshold = 0.5
+shader_parameter/normal_scale = 1.0
+shader_parameter/metallic = 0.0
+shader_parameter/metallic_texture_channel = Vector4(1, 0, 0, 0)
+shader_parameter/roughness = 1.0
+shader_parameter/roughness_texture_channel = Vector4(1, 0, 0, 0)
+shader_parameter/specular = 0.5
+shader_parameter/scale_h = 1.0
+shader_parameter/scale_w = 1.0
+shader_parameter/scale_var = -0.25
+shader_parameter/grass_strength = 0.55
+shader_parameter/optimization_by_distance = false
+shader_parameter/optimization_level = 7.0
+shader_parameter/optimization_dist_min = 10.0
+shader_parameter/optimization_dist_max = 50.0
+shader_parameter/grass_size_y = 1.0
+shader_parameter/interactive_mode = true
+shader_parameter/interactive_level_xz = 3.0
+shader_parameter/interactive_level_y = 0.3
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_3shck"]
+_surfaces = [{
+"aabb": AABB(-0.5, 0, -0.5, 1, 1, 1),
+"attribute_data": PackedByteArray("/wAA/wAAAAAAAAAAAAAA/wAAgD8AAIA/AAAA/wAAAAAAAIA//wAA/wAAgD8AAAAA/wAA/wAAAAAAAAAAAAAA/wAAgD8AAIA/AAAA/wAAAAAAAIA//wAA/wAAgD8AAAAA"),
+"format": 34359742495,
+"index_count": 12,
+"index_data": PackedByteArray("AAABAAIAAwABAAAABAAFAAYABwAFAAQA"),
+"material": SubResource("ShaderMaterial_e1kr5"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("AAAAvwAAgD8AAAAAAAAAPwAAAAAAAAAAAAAAvwAAAAAAAAAAAAAAPwAAgD8AAAAAAAAAAAAAgD8AAAC/AAAAAAAAAAAAAAA/AAAAAAAAAAAAAAC/AAAAAAAAgD8AAAA//3//f////7//f/9/////v/9//3////+//3//f////78AAP9//3//vwAA/3//f/+/AAD/f/9//78AAP9//3//vw==")
+}]
+metadata/GodotVersion = "4.6-stable (official)"
+
+[sub_resource type="MultiMesh" id="MultiMesh_h2lqh"]
+transform_format = 1
+mesh = SubResource("ArrayMesh_3shck")
+
+[node name="terrain" type="Node3D" unique_id=1376791014]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1887222989]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1588019672]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1139626346]
+
+[node name="SimpleGrassTextured" type="MultiMeshInstance3D" parent="StaticBody3D" unique_id=1521401981]
+multimesh = SubResource("MultiMesh_h2lqh")
+script = ExtResource("3_0ac8p")
+texture_albedo = ExtResource("2_hvvm8")
+sgt_radius = 2.0
+sgt_density = 25
+sgt_scale = 1.0
+sgt_rotation = 0.0
+sgt_rotation_rand = 1.0
+sgt_dist_min = 0.25
+sgt_follow_normal = false
+sgt_slope = Vector2(0, 45)
+sgt_tool_shape = {
+"airbrush": 1,
+"eraser": 0,
+"pencil": 1
+}
+metadata/_custom_type_script = "uid://2juaclm8gc1n"
+metadata/SimpleGrassTextured = "2.0.5"

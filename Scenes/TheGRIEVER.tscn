@@ -1,0 +1,74 @@
+[gd_scene format=3 uid="uid://w75fxxgx25st"]
+
+[ext_resource type="PackedScene" uid="uid://bla78nxytk6qu" path="res://MazeRunnerMonsterModel(BACKUP).glb" id="1_n5dky"]
+[ext_resource type="Script" uid="uid://dka04i3uhqhlf" path="res://Scripts/the_griever.gd" id="2_87jpw"]
+[ext_resource type="AudioStream" uid="uid://bt634bvkpfgqq" path="res://Sounds/Monster_Footsteps.wav" id="3_fbqeo"]
+[ext_resource type="AudioStream" uid="uid://bseg0fb2atnc0" path="res://Sounds/Monster_Bite.wav" id="4_5o3bj"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_87jpw"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wgcml"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bic46"]
+size = Vector3(31.515602, 21.811787, 16.713013)
+
+[node name="MazeRunnerMonsterModel(BACKUP)" unique_id=1288147700 instance=ExtResource("1_n5dky")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
+script = ExtResource("2_87jpw")
+
+[node name="Skeleton3D" parent="SKELETON" parent_id_path=PackedInt32Array(545202603) index="0" unique_id=2007483434]
+bones/0/position = Vector3(-0.47465986, -0.50970227, -1.1570228)
+bones/0/rotation = Quaternion(0, 0, 0, 1)
+bones/2/rotation = Quaternion(0.70295256, -0.41849303, -0.49474537, -0.2931695)
+bones/3/rotation = Quaternion(-0.23260497, 0.34042713, -0.35206106, 0.8402722)
+bones/5/position = Vector3(-0.4352848, -0.74301016, 0.6444105)
+bones/5/rotation = Quaternion(0.342723, 0.002261175, 0.0022611755, 0.9394311)
+bones/7/rotation = Quaternion(0.7895713, -0.54109246, -0.25389004, -0.13905399)
+bones/8/rotation = Quaternion(-0.2019873, 0.23657553, -0.35801205, 0.88037527)
+bones/10/position = Vector3(0.74907804, -0.5516764, -1.179975)
+bones/12/rotation = Quaternion(-0.7738919, -0.036817636, -0.2276857, 0.58982617)
+bones/13/rotation = Quaternion(-0.21497771, -0.14964926, 0.008870836, 0.96504456)
+bones/15/position = Vector3(0.7570806, -0.82338023, 0.5987247)
+bones/17/rotation = Quaternion(0.7969576, 0.2185432, 0.1926913, 0.5291196)
+bones/20/position = Vector3(1.7297775, -0.54034597, -0.20117365)
+bones/21/rotation = Quaternion(0.4017128, 0.14865379, 0.09154796, 0.89897054)
+bones/22/rotation = Quaternion(0.17508589, 0.21945617, 0.06141957, 0.95781606)
+bones/24/rotation = Quaternion(-0.24295454, 0.5871138, 0.14015439, 0.7593597)
+bones/26/rotation = Quaternion(-0.19881803, 0.1937144, -0.093583055, 0.956132)
+bones/27/position = Vector3(-1.7240016, -0.8078962, -0.8775205)
+bones/27/rotation = Quaternion(0.6592214, -0.48606402, -0.48606405, -0.30481246)
+bones/28/rotation = Quaternion(-0.08171811, 0.12627445, -0.09771973, 0.9837825)
+bones/30/position = Vector3(-1.732361, -0.9942972, 0.15432875)
+bones/30/rotation = Quaternion(0.6872112, -0.41287348, -0.41287342, -0.43221727)
+bones/31/rotation = Quaternion(0.00010443108, 0.09912669, -0.06371358, 0.99303305)
+
+[node name="Legs" parent="SKELETON/Skeleton3D" index="0" unique_id=394893887]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
+layers = 2
+
+[node name="HitBox" type="Area3D" parent="." index="2" unique_id=1061180009]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HitBox" index="0" unique_id=19766326]
+transform = Transform3D(32, 0, 0, 0, 25, 0, 0, 0, 20, -4.3517056, 5.520363, 0)
+shape = SubResource("BoxShape3D_87jpw")
+
+[node name="AttackRange" type="Area3D" parent="." index="3" unique_id=733468342]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="AttackRange" index="0" unique_id=2022327085]
+transform = Transform3D(34, 0, 0, 0, 27, 0, 0, 0, 22, -4.352, 5.52, -0.08771372)
+shape = SubResource("BoxShape3D_wgcml")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="4" unique_id=689586653]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9370689, 6.789011, 0.05670166)
+shape = SubResource("BoxShape3D_bic46")
+
+[node name="CrawlingSound" type="AudioStreamPlayer3D" parent="." index="5" unique_id=314687648]
+transform = Transform3D(0.33333334, 0, 0, 0, 0.33333334, 0, 0, 0, 0.33333334, 0, -7.743332, 0)
+stream = ExtResource("3_fbqeo")
+
+[node name="BiteSound" type="AudioStreamPlayer3D" parent="." index="6" unique_id=1895056000]
+process_mode = 3
+stream = ExtResource("4_5o3bj")
+
+[connection signal="body_entered" from="HitBox" to="." method="_on_hit_box_body_entered"]
+[connection signal="body_entered" from="AttackRange" to="." method="_on_attack_range_body_entered"]

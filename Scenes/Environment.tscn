@@ -1,0 +1,580 @@
+[gd_scene format=3 uid="uid://bdkxydktsi4mo"]
+
+[ext_resource type="PackedScene" uid="uid://ppxqxaxfu5hl" path="res://Scenes/MazeModel.tscn" id="1_3hnbd"]
+[ext_resource type="Script" uid="uid://l8d5sa08wmkk" path="res://Scripts/environment.gd" id="1_06vh4"]
+[ext_resource type="Script" uid="uid://d0e8eo3dn2k6j" path="res://Scripts/canvas_layer.gd" id="2_28l0w"]
+[ext_resource type="Texture2D" uid="uid://jj83b8peond3" path="res://Textures/First_Level_Textures/Stone_Tile/Stone_Tile1-PNG_Color.png" id="2_56krf"]
+[ext_resource type="FontFile" uid="uid://dfetu33odpex1" path="res://Textures/Creepster-Regular.ttf" id="2_cgeuw"]
+[ext_resource type="PackedScene" uid="uid://byrh3ow85yemy" path="res://Scenes/player.tscn" id="2_gjion"]
+[ext_resource type="Script" uid="uid://bswpajvkbu5iy" path="res://Scripts/player.gd" id="3_c0q54"]
+[ext_resource type="Texture2D" uid="uid://dht1d01rh7vw5" path="res://Textures/First_Level_Textures/Stone_Tile/Stone_Tile1-PNG_NormalGL.png" id="3_gj25p"]
+[ext_resource type="Texture2D" uid="uid://ognx5phmbbsm" path="res://Textures/First_Level_Textures/Maze_Floor_Texture/Rock010_2K-PNG_Color.png" id="3_ttho4"]
+[ext_resource type="Texture2D" uid="uid://cflk2i0fxughk" path="res://Textures/First_Level_Textures/Stone_Tile/Stone_Tile1-PNG_Roughness.png" id="4_06vh4"]
+[ext_resource type="Texture2D" uid="uid://ddu1w1gdk61nx" path="res://Textures/First_Level_Textures/Maze_Floor_Texture/Rock010_2K-PNG_NormalGL.png" id="4_sd3sa"]
+[ext_resource type="Texture2D" uid="uid://8cit1aeetk1u" path="res://Textures/First_Level_Textures/Grass_texture/Ground068_2K-PNG_Color.png" id="5_56krf"]
+[ext_resource type="Texture2D" uid="uid://x0gyjex4yy0" path="res://Textures/First_Level_Textures/Maze_Floor_Texture/Rock010_2K-PNG_Roughness.png" id="5_cgeuw"]
+[ext_resource type="Texture2D" uid="uid://danriaiysk6bh" path="res://Textures/First_Level_Textures/Grass_texture/Ground068_2K-PNG_NormalGL.png" id="6_gj25p"]
+[ext_resource type="Texture2D" uid="uid://bdmpk317tnvuf" path="res://Textures/First_Level_Textures/Grass_texture/Ground068_2K-PNG_Roughness.png" id="7_06vh4"]
+[ext_resource type="Script" uid="uid://6ywmob6o258a" path="res://Scripts/event_trigger_left_path.gd" id="14_sd3sa"]
+[ext_resource type="PackedScene" uid="uid://w75fxxgx25st" path="res://Scenes/TheGRIEVER.tscn" id="15_sd3sa"]
+[ext_resource type="Script" uid="uid://8fpqhyta47no" path="res://Scripts/event_trigger_right_path.gd" id="18_4a1d5"]
+[ext_resource type="Script" uid="uid://dmbeyn0frultv" path="res://Scripts/event_trigger_middle_path.gd" id="19_kpuil"]
+[ext_resource type="PackedScene" uid="uid://bohovl7ip1phr" path="res://Scenes/tree_layout.tscn" id="20_viq1u"]
+[ext_resource type="Script" uid="uid://dxmkulwjasb1r" path="res://Scripts/power_up_spawn_points.gd" id="23_aqr5w"]
+[ext_resource type="Texture2D" uid="uid://d01fjdlrfqrj" path="res://Textures/Skies/FirstLevelSky_4K_HDR.exr" id="23_on1ac"]
+[ext_resource type="PackedScene" uid="uid://cmx7pnad6ujvr" path="res://Scenes/power_up.tscn" id="24_on1ac"]
+
+[sub_resource type="Animation" id="Animation_cgeuw"]
+resource_name = "Death_Effect"
+length = 1.1666666
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DeathText:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("You Died (Blood Overlay):modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_28l0w"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DeathText:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("You Died (Blood Overlay):modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4a1d5"]
+_data = {
+&"Death_Effect": SubResource("Animation_cgeuw"),
+&"RESET": SubResource("Animation_28l0w")
+}
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_06vh4"]
+size = Vector3(200, 200, 200)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hr7o0"]
+albedo_texture = ExtResource("2_56krf")
+roughness_texture = ExtResource("4_06vh4")
+normal_enabled = true
+normal_texture = ExtResource("3_gj25p")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ttho4"]
+albedo_color = Color(0.14608663, 0.20411247, 0.10612013, 1)
+albedo_texture = ExtResource("3_ttho4")
+roughness_texture = ExtResource("5_cgeuw")
+normal_enabled = true
+normal_texture = ExtResource("4_sd3sa")
+uv1_scale = Vector3(1, 7, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_28l0w"]
+cull_mode = 2
+albedo_texture = ExtResource("2_56krf")
+roughness_texture = ExtResource("4_06vh4")
+normal_enabled = true
+normal_texture = ExtResource("3_gj25p")
+uv1_scale = Vector3(5, 2, 2)
+use_z_clip_scale = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sd3sa"]
+cull_mode = 2
+albedo_texture = ExtResource("2_56krf")
+roughness_texture = ExtResource("4_06vh4")
+normal_enabled = true
+normal_texture = ExtResource("3_gj25p")
+uv1_scale = Vector3(0.6, 1, 1)
+use_z_clip_scale = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4a1d5"]
+albedo_color = Color(0.48767823, 0.5866718, 0.2661801, 1)
+albedo_texture = ExtResource("5_56krf")
+roughness_texture = ExtResource("7_06vh4")
+normal_enabled = true
+normal_texture = ExtResource("6_gj25p")
+ao_enabled = true
+ao_light_affect = 0.5
+ao_texture = ExtResource("5_56krf")
+uv1_scale = Vector3(15, 15, 15)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_hr7o0"]
+material = SubResource("StandardMaterial3D_4a1d5")
+size = Vector2(1, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hr7o0"]
+size = Vector3(200, 0.01, 200)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7owdr"]
+size = Vector3(1.5840607, 1.1934814, 0.76854324)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wqixp"]
+size = Vector3(0.44812012, 1, 2.664795)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_gj25p"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_cgeuw"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_sd3sa"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_pfry5"]
+panorama = ExtResource("23_on1ac")
+energy_multiplier = 0.5
+
+[sub_resource type="Sky" id="Sky_olayq"]
+sky_material = SubResource("PanoramaSkyMaterial_pfry5")
+
+[sub_resource type="Environment" id="Environment_87f81"]
+background_mode = 2
+sky = SubResource("Sky_olayq")
+ambient_light_source = 3
+
+[node name="Environment" type="Node3D" unique_id=1748100739]
+script = ExtResource("1_06vh4")
+level_path = "res://Scenes/Environment.tscn"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=684324213]
+process_mode = 3
+script = ExtResource("2_28l0w")
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=1873165130]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0056611504, 0.0056611514, 0.00566115, 1)
+
+[node name="You Died (Blood Overlay)" type="ColorRect" parent="CanvasLayer" unique_id=1350573745]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.1879043, 2.2862106e-07, 3.008172e-08, 1)
+
+[node name="DeathText" type="Label" parent="CanvasLayer" unique_id=571370024]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_cgeuw")
+theme_override_font_sizes/font_size = 150
+text = "YOU DIED"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DeathEffect" type="AnimationPlayer" parent="CanvasLayer" unique_id=522975921]
+libraries/ = SubResource("AnimationLibrary_4a1d5")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1260050468]
+transform = Transform3D(-0.8660254, -0.4330128, 0.25000006, 0, 0.49999997, 0.86602545, -0.5000001, 0.75, -0.43301266, -60.136772, 97.73595, -88.37861)
+light_energy = 2.318
+light_indirect_energy = 2.142
+sky_mode = 1
+
+[node name="Maze Model" parent="." unique_id=205124536 instance=ExtResource("1_3hnbd")]
+
+[node name="StoneArea" type="Area3D" parent="Maze Model/Floor" parent_id_path=PackedInt32Array(205124536, 1777321393) index="0" unique_id=1633206884]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.26091766, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Maze Model/Floor/StoneArea" unique_id=491638899]
+transform = Transform3D(1, 0, 0, 0, 0.029401064, 0, 0, 0, 1, 0, -2.0310535, 0)
+shape = SubResource("BoxShape3D_06vh4")
+
+[node name="bottomleft2" parent="Maze Model/Walls" parent_id_path=PackedInt32Array(205124536, 1614257654) index="0" unique_id=1734143444]
+material = SubResource("StandardMaterial3D_hr7o0")
+
+[node name="topright2" parent="Maze Model/Walls" parent_id_path=PackedInt32Array(205124536, 1614257654) index="2" unique_id=598434543]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 100.5, -38.99445, 58.500004)
+material = SubResource("StandardMaterial3D_hr7o0")
+
+[node name="bottomright2" parent="Maze Model/Walls" parent_id_path=PackedInt32Array(205124536, 1614257654) index="3" unique_id=42779583]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 100.5, -38.754, -57.6)
+material = SubResource("StandardMaterial3D_hr7o0")
+
+[node name="topright1" parent="Maze Model/Walls" parent_id_path=PackedInt32Array(205124536, 1614257654) index="5" unique_id=1855155986]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 58.5, -39.502, 98.9)
+
+[node name="DirectionalLight3D" parent="Maze Model" index="3" unique_id=544195134]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 114.09425, 51.00789)
+light_energy = 0.752
+shadow_enabled = true
+shadow_opacity = 0.24
+shadow_blur = 5.191
+
+[node name="RightSide Path" type="CSGBox3D" parent="Maze Model" unique_id=1129794529]
+transform = Transform3D(-3.8247464e-08, 0, 0.165, 0, 1, 0, -0.875, 0, -7.212379e-09, -0.056, -0.783, -186.038)
+use_collision = true
+size = Vector3(200, 1, 200)
+material = SubResource("StandardMaterial3D_ttho4")
+
+[node name="StoneArea" type="Area3D" parent="Maze Model/RightSide Path" unique_id=620918469]
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="Maze Model/RightSide Path/StoneArea" unique_id=408269347]
+transform = Transform3D(0.9999999, 0, 1.687539e-14, 0, 0.005, 0, -1.4210855e-14, 0, 1.1999999, 0, 0.18283749, 9.750889)
+shape = SubResource("BoxShape3D_06vh4")
+
+[node name="RightSide Path1" type="CSGBox3D" parent="Maze Model/RightSide Path" unique_id=1770032488]
+transform = Transform3D(-199.99998, 7.948977e-06, -9.991174e-08, -1.5298985e-05, -79.56, -3.821371e-15, -9.2721115e-05, 1.8425953e-12, 6.0606055, 0, 40.079018, -99.6606)
+material = SubResource("StandardMaterial3D_28l0w")
+
+[node name="RightSide Path2" type="CSGBox3D" parent="Maze Model/RightSide Path" unique_id=1723629906]
+transform = Transform3D(-199.99998, 7.948977e-06, -9.991174e-08, -1.5298985e-05, -79.56, -3.821371e-15, -9.2721115e-05, 1.8425953e-12, 6.0606055, 0, 40.079018, 100.399994)
+material = SubResource("StandardMaterial3D_28l0w")
+
+[node name="RightSide Path3" type="CSGBox3D" parent="Maze Model/RightSide Path" unique_id=1531298373]
+transform = Transform3D(5.548858e-06, 7.948978e-06, -0.6699527, 2.8297303e-13, -79.560005, -5.1247987e-08, -224.39432, 1.8425955e-12, -4.6589076e-07, 100.42679, 40.078907, 1.0799308)
+material = SubResource("StandardMaterial3D_sd3sa")
+
+[node name="LeftSide Path" type="CSGBox3D" parent="Maze Model" unique_id=793270770]
+transform = Transform3D(1.043427e-08, 0, -0.165, 0, 1, 0, 0.875, 0, 1.9676054e-09, 0.056, -0.783, 187.51)
+use_collision = true
+size = Vector3(200, 1, 200)
+material = SubResource("StandardMaterial3D_ttho4")
+
+[node name="StoneArea" type="Area3D" parent="Maze Model/LeftSide Path" unique_id=1328300700]
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="Maze Model/LeftSide Path/StoneArea" unique_id=1107664143]
+transform = Transform3D(0.9999999, 0, 1.687539e-14, 0, 0.005, 0, -1.4210855e-14, 0, 1.1999999, 0, 0.18283749, 9.750889)
+shape = SubResource("BoxShape3D_06vh4")
+
+[node name="Left Side Path1" type="CSGBox3D" parent="Maze Model/LeftSide Path" unique_id=516685705]
+transform = Transform3D(-199.99998, 7.948977e-06, -9.991174e-08, -1.5298985e-05, -79.56, -3.821371e-15, -9.2721115e-05, 1.8425953e-12, 6.0606055, 0, 40.079, -99.69)
+material = SubResource("StandardMaterial3D_28l0w")
+
+[node name="Left Side Path2" type="CSGBox3D" parent="Maze Model/LeftSide Path" unique_id=1807625690]
+transform = Transform3D(-199.99998, 7.948977e-06, -9.991174e-08, -1.5298985e-05, -79.56, -3.821371e-15, -9.2721115e-05, 1.8425953e-12, 6.0606055, 0, 40.079018, 100.399994)
+material = SubResource("StandardMaterial3D_28l0w")
+
+[node name="Left Side Path3" type="CSGBox3D" parent="Maze Model/LeftSide Path" unique_id=1168141626]
+transform = Transform3D(5.548858e-06, 7.948978e-06, -0.6699527, 2.8297303e-13, -79.560005, -5.1247987e-08, -224.39432, 1.8425955e-12, -4.6589076e-07, 100.42679, 40.078907, 1.0799308)
+material = SubResource("StandardMaterial3D_sd3sa")
+
+[node name="Middle Path" type="CSGBox3D" parent="Maze Model" unique_id=86027447]
+transform = Transform3D(-0.875, 0, 1.3563891e-08, 0, 1, 0, -7.649493e-08, 0, -0.15515286, -187.55, -0.783, -0.027)
+use_collision = true
+size = Vector3(200, 1, 200)
+material = SubResource("StandardMaterial3D_ttho4")
+
+[node name="StoneArea" type="Area3D" parent="Maze Model/Middle Path" unique_id=1660766348]
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="Maze Model/Middle Path/StoneArea" unique_id=122579020]
+transform = Transform3D(0.9999999, 0, 1.687539e-14, 0, 0.005, 0, -1.4210855e-14, 0, 1.1999999, 0, 0.18283749, 9.750889)
+shape = SubResource("BoxShape3D_06vh4")
+
+[node name="Middle Side Path1" type="CSGBox3D" parent="Maze Model/Middle Path" unique_id=1188827778]
+transform = Transform3D(-199.99995, 7.948977e-06, -9.9911716e-08, -1.5298985e-05, -79.56, -3.821371e-15, -9.27211e-05, 1.8425947e-12, 6.0606046, 0, 40.079, -99.89)
+material = SubResource("StandardMaterial3D_28l0w")
+
+[node name="Middle Side Path2" type="CSGBox3D" parent="Maze Model/Middle Path" unique_id=392378868]
+transform = Transform3D(-199.99998, 7.948977e-06, -9.991174e-08, -1.5298985e-05, -79.56, -3.821371e-15, -9.2721115e-05, 1.8425953e-12, 6.0606055, 0, 40.079, 99.59)
+material = SubResource("StandardMaterial3D_28l0w")
+
+[node name="Middle Side Path3" type="CSGBox3D" parent="Maze Model/Middle Path" unique_id=120441300]
+transform = Transform3D(5.548858e-06, 7.948978e-06, -0.6699527, 2.8297303e-13, -79.560005, -5.1247987e-08, -224.39432, 1.8425955e-12, -4.6589076e-07, 100.42679, 40.078907, 1.0799308)
+material = SubResource("StandardMaterial3D_sd3sa")
+
+[node name="Grassy Ground" type="MeshInstance3D" parent="." unique_id=1307279556]
+transform = Transform3D(217, 0, 0, 0, 200, 0, 0, 0, 200, 208.39442, -0.2267108, 0.5038996)
+mesh = SubResource("PlaneMesh_hr7o0")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Grassy Ground" unique_id=2134328887]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Grassy Ground/StaticBody3D" unique_id=489330463]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.019248366, 0, 0)
+shape = SubResource("BoxShape3D_hr7o0")
+
+[node name="invisible wall 1" type="StaticBody3D" parent="Grassy Ground" unique_id=972679548]
+transform = Transform3D(0.010255178, 0, 0, 0, 0.0048349863, 0, 0, 0, 0.05290037, 0.00432086, 0.17103146, 1.2779444)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Grassy Ground/invisible wall 1" unique_id=2067986730]
+transform = Transform3D(99.999985, 0, 0, 0, 100.000015, 0, 0, 0, 0.9999999, -26.228325, -12.532158, 2.3110619)
+shape = SubResource("BoxShape3D_7owdr")
+
+[node name="invisible wall 3" type="StaticBody3D" parent="Grassy Ground" unique_id=500460514]
+transform = Transform3D(0.013735611, 0, 0, 0, 0.0059777186, 0, 0, 0, 0.07457566, 0.18711185, -0.024446335, -0.4949334)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Grassy Ground/invisible wall 3" unique_id=1970989282]
+transform = Transform3D(80.19752, 0, 0, 0, 100, 0, 0, 0, 1, -40.479248, 10.728666, -12.0241375)
+shape = SubResource("BoxShape3D_7owdr")
+
+[node name="invisible wall 2" type="StaticBody3D" parent="Grassy Ground" unique_id=1983424059]
+transform = Transform3D(0.13040191, 0, 0, 0, 0.007167976, 0, 0, 0, 0.011775392, 0.49758148, 0.043988634, 0.03183389)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Grassy Ground/invisible wall 2" unique_id=722365531]
+transform = Transform3D(1.9999994, 0, 0, 0, 99.99999, 0, 0, 0, 93.86468, 0.43572712, 0, 0.9131887)
+shape = SubResource("BoxShape3D_wqixp")
+
+[node name="GrassArea" type="Area3D" parent="Grassy Ground" unique_id=1676101627]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Grassy Ground/GrassArea" unique_id=65775480]
+shape = SubResource("BoxShape3D_gj25p")
+
+[node name="Grassy Ground2" type="MeshInstance3D" parent="." unique_id=167054235]
+transform = Transform3D(300, 0, 0, 0, 200, 0, 0, 0, 174.5, 167.0284, -0.2267108, -186.30739)
+mesh = SubResource("PlaneMesh_hr7o0")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Grassy Ground2" unique_id=236557973]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Grassy Ground2/StaticBody3D" unique_id=1895602005]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.019248366, 0, 0)
+shape = SubResource("BoxShape3D_hr7o0")
+
+[node name="GrassArea" type="Area3D" parent="Grassy Ground2" unique_id=110580073]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Grassy Ground2/GrassArea" unique_id=269214043]
+shape = SubResource("BoxShape3D_gj25p")
+
+[node name="Grassy Ground3" type="MeshInstance3D" parent="." unique_id=1692958499]
+transform = Transform3D(300, 0, 0, 0, 200, 0, 0, 0, 175.5, 166.98167, -0.2267108, 188.25859)
+mesh = SubResource("PlaneMesh_hr7o0")
+
+[node name="GrassArea" type="Area3D" parent="Grassy Ground3" unique_id=814800262]
+
+[node name="SpawnPoint" type="Marker3D" parent="." unique_id=108234806]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 143.045, 0.6, 0)
+
+[node name="EventTriggerLeftPath" type="Area3D" parent="." unique_id=1788429802 groups=["player"]]
+collision_layer = 0
+script = ExtResource("14_sd3sa")
+monster_scene = ExtResource("15_sd3sa")
+flappy_scene = "res://Scenes/flappybird.tscn"
+tictactoe_scene = "res://Scenes/tic-tac-toe.tscn"
+memorygame_scene = "res://Scenes/Memory_Game.tscn"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="EventTriggerLeftPath" unique_id=2043795902]
+transform = Transform3D(35, 0, 0, 0, 90, 0, 0, 0, 1, 0, 33.82888, 185.67639)
+shape = SubResource("BoxShape3D_cgeuw")
+
+[node name="MonsterSpawn" type="Marker3D" parent="EventTriggerLeftPath" unique_id=1383807202]
+transform = Transform3D(-4.317323e-08, -6.837968e-09, -1, -0.15643448, 0.98768836, 0, 0.98768836, 0.15643448, -4.371139e-08, 0, 6.2, 247.498)
+
+[node name="OneWayWallLeft" type="StaticBody3D" parent="EventTriggerLeftPath" unique_id=1246338886]
+transform = Transform3D(1.2, 0, 0, 0, 1.1, 0, 0, 0, 0.09, 0, 0, 167.85637)
+disable_mode = 1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="EventTriggerLeftPath/OneWayWallLeft" unique_id=2080485620]
+transform = Transform3D(35, 0, 0, 0, 90, 0, 0, 0, 0.09, 0, 33.361443, 186.37192)
+shape = SubResource("BoxShape3D_sd3sa")
+disabled = true
+
+[node name="EventTriggerRightPath" type="Area3D" parent="." unique_id=1793169484 groups=["player"]]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 3.406256e-05, 0, -2.2921448)
+collision_layer = 0
+script = ExtResource("18_4a1d5")
+monster_scene = ExtResource("15_sd3sa")
+flappy_scene = "res://Scenes/flappybird.tscn"
+tictactoe_scene = "res://Scenes/tic-tac-toe.tscn"
+memorygame_scene = "res://Scenes/Memory_Game.tscn"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="EventTriggerRightPath" unique_id=1941363444]
+transform = Transform3D(35, 0, 0, 0, 90, 0, 0, 0, 1, 0, 33.82888, 185.67639)
+shape = SubResource("BoxShape3D_cgeuw")
+
+[node name="MonsterSpawn" type="Marker3D" parent="EventTriggerRightPath" unique_id=2094591083]
+transform = Transform3D(-4.317323e-08, -6.837968e-09, -1, -0.15643448, 0.98768836, 0, 0.98768836, 0.15643448, -4.371139e-08, 0, 6.2, 247.498)
+
+[node name="OneWayWallRight" type="StaticBody3D" parent="EventTriggerRightPath" unique_id=2092027653]
+transform = Transform3D(1.2, 0, 0, 0, 1.1, 0, 0, 0, 0.09, 1.6044822e-05, 0, 168.1222)
+disable_mode = 1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="EventTriggerRightPath/OneWayWallRight" unique_id=1789604249]
+transform = Transform3D(35, 0, 0, 0, 90, 0, 0, 0, 0.09, 0, 33.361443, 186.37192)
+shape = SubResource("BoxShape3D_sd3sa")
+disabled = true
+
+[node name="EventTriggerMiddlePath" type="Area3D" parent="." unique_id=1089298067 groups=["player"]]
+transform = Transform3D(0.0062134266, 0, -0.99998075, 0, 1, 0, 0.99998075, 0, 0.0062134266, 3.406256e-05, 0, -2.2921448)
+collision_layer = 0
+script = ExtResource("19_kpuil")
+monster_scene = ExtResource("15_sd3sa")
+flappy_scene = "res://Scenes/flappybird.tscn"
+tictactoe_scene = "res://Scenes/tic-tac-toe.tscn"
+memorygame_scene = "res://Scenes/Memory_Game.tscn"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="EventTriggerMiddlePath" unique_id=1461722573]
+transform = Transform3D(35, 0, 0, 0, 90, 0, 0, 0, 1, 0, 33.82888, 185.67639)
+shape = SubResource("BoxShape3D_cgeuw")
+
+[node name="MonsterSpawn" type="Marker3D" parent="EventTriggerMiddlePath" unique_id=472865323]
+transform = Transform3D(-4.317323e-08, -6.837968e-09, -1, -0.15643448, 0.98768836, 0, 0.98768836, 0.15643448, -4.371139e-08, 0, 6.2, 247.498)
+
+[node name="OneWayWallMiddle" type="StaticBody3D" parent="EventTriggerMiddlePath" unique_id=1604979319]
+transform = Transform3D(1.2, 0, 0, 0, 1.1, 0, 0, 0, 0.09, 1.6044822e-05, 0, 168.1222)
+disable_mode = 1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="EventTriggerMiddlePath/OneWayWallMiddle" unique_id=2096192832]
+transform = Transform3D(35, 0, 0, 0, 90, 0, 0, 0, 0.09, 0, 33.361443, 186.37192)
+shape = SubResource("BoxShape3D_sd3sa")
+disabled = true
+
+[node name="TreeLayout" parent="." unique_id=2013653221 instance=ExtResource("20_viq1u")]
+transform = Transform3D(25, 0, 0, 0, 25, 0, 0, 0, 25, 203, -1.3642273, -3)
+
+[node name="TreeLayout2" parent="TreeLayout" unique_id=1908177370 instance=ExtResource("20_viq1u")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0.8000002, 0, -7.2799997)
+
+[node name="TreeLayout3" parent="TreeLayout" unique_id=1769206025 instance=ExtResource("20_viq1u")]
+transform = Transform3D(-0.00521847, 0, 0.9999864, 0, 1, 0, -0.9999864, 0, -0.00521847, 0.9100876, 0, 7.5599704)
+
+[node name="TreeLayout4" parent="TreeLayout" unique_id=617941484 instance=ExtResource("20_viq1u")]
+transform = Transform3D(0.16718967, 0, 0.7823348, 0, 0.8000001, 0, -0.7823348, 0, 0.16718967, -4.374094, 0, 7.5599704)
+
+[node name="TreeLayout5" parent="TreeLayout" unique_id=453546617 instance=ExtResource("20_viq1u")]
+transform = Transform3D(0.37346748, 0, -0.7074759, 0, 0.79999995, 0, 0.7074759, 0, 0.37346748, -4.374094, 0, -7.4374604)
+
+[node name="PowerUpSpawnPoints" type="Node3D" parent="." unique_id=1740537248]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1823611, 0)
+script = ExtResource("23_aqr5w")
+powerup_scene = ExtResource("24_on1ac")
+
+[node name="Spawn1" type="Marker3D" parent="PowerUpSpawnPoints" unique_id=157826867]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 145.02426, -1.3088983, 212.7136)
+
+[node name="Spawn2" type="Marker3D" parent="PowerUpSpawnPoints" unique_id=900084845]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 47.65, -1.309, -153.021)
+
+[node name="Spawn3" type="Marker3D" parent="PowerUpSpawnPoints" unique_id=1062095286]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 142.357, -1.309, -240.125)
+
+[node name="Spawn4" type="Marker3D" parent="PowerUpSpawnPoints" unique_id=982747865]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 312.815, -1.309, 4.834)
+
+[node name="Spawn5" type="Marker3D" parent="PowerUpSpawnPoints" unique_id=927283511]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -91.536, -1.309, -90.882)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=745991097]
+environment = SubResource("Environment_87f81")
+
+[node name="player" parent="." unique_id=1965834822 groups=["player"] instance=ExtResource("2_gjion")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 143.045, 0.6, 0)
+script = ExtResource("3_c0q54")
+
+[node name="Camera3D" parent="player/Player\'s Head" parent_id_path=PackedInt32Array(1965834822, 656417936) index="0" unique_id=1464402372]
+current = true
+
+[node name="Skeleton3D" parent="player/AnimatedCharacter/Armature" parent_id_path=PackedInt32Array(1965834822, 712101857, 591634624) index="0" unique_id=1283276645]
+bones/0/position = Vector3(0.49730206, 279.80466, -0.05558157)
+bones/0/rotation = Quaternion(0.029950218, 0.024623305, 0.009719657, 0.9992008)
+bones/1/position = Vector3(-1.4951857e-05, 28.167332, 0.46160462)
+bones/1/rotation = Quaternion(0.018288586, -0.0038378506, 0.009299775, 0.99978215)
+bones/2/position = Vector3(-4.965938e-07, 32.866245, 1.7853469e-07)
+bones/2/rotation = Quaternion(0.02027896, -0.0077790935, -0.0037806649, 0.999757)
+bones/3/position = Vector3(2.6816622e-07, 37.56148, -7.9559265e-07)
+bones/3/rotation = Quaternion(0.020325836, -0.007658115, -0.0037816768, 0.999757)
+bones/4/position = Vector3(-1.3534517e-05, 42.256622, -1.865517e-05)
+bones/4/rotation = Quaternion(0.12634164, 0.0048286784, 0.0024773069, 0.99197197)
+bones/5/position = Vector3(-6.846727e-07, 27.965294, 6.4896903e-07)
+bones/5/rotation = Quaternion(-0.15183453, 0.023780137, 0.0057653934, 0.98810303)
+bones/6/position = Vector3(2.422543e-07, 75.03882, -5.594782e-06)
+bones/7/position = Vector3(16.09898, 37.751305, 0.13543718)
+bones/7/rotation = Quaternion(0.5543216, 0.40066707, -0.6403493, 0.3494943)
+bones/8/position = Vector3(-1.4906857e-06, 33.693306, -3.8190643e-05)
+bones/8/rotation = Quaternion(0.25757498, 0.4476714, 0.40404314, 0.7549798)
+bones/9/position = Vector3(8.848938e-07, 71.04622, 6.3215375e-06)
+bones/9/rotation = Quaternion(-0.007563142, 0.0019009714, 0.17907368, 0.98380476)
+bones/10/position = Vector3(-9.4631264e-07, 56.549156, -3.1383897e-05)
+bones/10/rotation = Quaternion(-0.06627383, -0.118543774, 0.01378859, 0.9906388)
+bones/11/position = Vector3(-10.861048, 12.22885, 0.00014219887)
+bones/11/rotation = Quaternion(0.15223421, 0.21315682, 0.23148026, 0.93691295)
+bones/12/position = Vector3(1.9466454e-05, 13.084576, 1.2799879e-05)
+bones/12/rotation = Quaternion(0.01572426, -0.15982367, -0.076406874, 0.98405856)
+bones/13/position = Vector3(5.5626333e-07, 11.738653, 5.3682124e-06)
+bones/13/rotation = Quaternion(-0.024819912, -0.18643905, -0.009210056, 0.98210984)
+bones/14/position = Vector3(-1.6536229e-05, 9.322838, 4.892922e-06)
+bones/15/position = Vector3(1.5168553e-05, 25.740908, -0.09331061)
+bones/15/rotation = Quaternion(-0.0017985262, -0.0026857466, 3.668596e-06, 0.9999948)
+bones/16/position = Vector3(5.3138592e-08, 18.493643, 1.6610305e-05)
+bones/16/rotation = Quaternion(-1.3566506e-05, 0.004752361, 7.692944e-07, 0.9999888)
+bones/17/position = Vector3(1.5090081e-06, 15.033238, -1.146901e-06)
+bones/17/rotation = Quaternion(1.2676988e-06, 0.0052905562, -3.1664968e-07, 0.99998605)
+bones/18/position = Vector3(-7.725166e-06, 7.619436, -1.2491624e-05)
+bones/19/position = Vector3(-16.098991, 37.749325, 0.012277899)
+bones/19/rotation = Quaternion(0.66160643, -0.3542959, 0.5277164, 0.39782777)
+bones/20/position = Vector3(1.37894585e-05, 33.693077, -2.8567607e-05)
+bones/20/rotation = Quaternion(0.33217874, -0.33736452, -0.2276691, 0.8508874)
+bones/21/position = Vector3(-6.2361173e-06, 71.00308, 1.2054279e-05)
+bones/21/rotation = Quaternion(-0.0064811553, -0.0018324102, -0.16755468, 0.9858398)
+bones/22/position = Vector3(-6.6032753e-06, 56.549118, 5.48151e-06)
+bones/22/rotation = Quaternion(0.009541325, 0.26249245, 0.06835003, 0.962463)
+bones/23/position = Vector3(10.555547, 12.94357, -6.375849e-07)
+bones/23/rotation = Quaternion(0.1364084, -0.18601869, -0.24004047, 0.9429583)
+bones/24/position = Vector3(-1.5361886e-05, 13.361307, -1.03960665e-05)
+bones/24/rotation = Quaternion(0.024507105, 0.16120312, 0.08212695, 0.98319286)
+bones/25/position = Vector3(1.4089535e-05, 11.684758, -3.791909e-06)
+bones/25/rotation = Quaternion(-0.02082129, 0.12835567, -0.0050865407, 0.9914966)
+bones/26/position = Vector3(-6.720995e-06, 9.367403, 5.3770273e-06)
+bones/27/position = Vector3(1.1046661e-05, 29.137585, -0.036165047)
+bones/27/rotation = Quaternion(-0.00060872996, 0.0010706731, 5.333569e-07, 0.99999934)
+bones/28/position = Vector3(2.9281478e-06, 15.205915, -3.9588085e-06)
+bones/28/rotation = Quaternion(-1.6719681e-05, -0.0052965023, -3.1029922e-06, 0.999986)
+bones/29/position = Vector3(1.4548209e-07, 14.928725, -8.224033e-06)
+bones/29/rotation = Quaternion(4.379533e-06, -0.002809768, 1.6921842e-06, 0.99999607)
+bones/30/position = Vector3(1.8627202e-07, 8.051056, 5.523154e-06)
+bones/31/position = Vector3(25.496737, -15.64348, 3.7489054)
+bones/31/rotation = Quaternion(0.09143419, 0.08192607, 0.9887819, -0.08507788)
+bones/31/scale = Vector3(1.0000013, 0.9999996, 0.9999674)
+bones/32/position = Vector3(-8.775822e-06, 126.99727, -4.678942e-06)
+bones/32/rotation = Quaternion(-0.14897507, -0.079740204, 0.006406385, 0.9855998)
+bones/32/scale = Vector3(1.0000038, 1, 0.99999475)
+bones/33/position = Vector3(1.0943127e-06, 122.50347, 2.403185e-06)
+bones/33/rotation = Quaternion(0.5429277, -0.159163, 0.0055719167, 0.82453966)
+bones/33/scale = Vector3(1.0000075, 0.99999624, 0.9999949)
+bones/34/position = Vector3(1.352521e-07, 41.624893, 2.113686e-06)
+bones/34/rotation = Quaternion(0.24078032, -0.023555942, 0.0058066444, 0.9702765)
+bones/34/scale = Vector3(1.0000001, 1.0000001, 1.0000007)
+bones/35/position = Vector3(9.182627e-07, 16.227268, -1.7881254e-07)
+bones/36/position = Vector3(-25.496746, -15.643439, 3.5291991)
+bones/36/rotation = Quaternion(-0.07382672, 0.07358938, 0.9909503, 0.08456804)
+bones/36/scale = Vector3(0.99999833, 1.0000001, 1.0001172)
+bones/37/position = Vector3(-4.407636e-07, 126.95089, 1.4339867e-07)
+bones/37/rotation = Quaternion(-0.16914733, 0.08057982, -0.012417139, 0.9822128)
+bones/37/scale = Vector3(0.9999879, 0.99998814, 1.0000246)
+bones/38/position = Vector3(-6.0976818e-06, 122.44097, -3.033864e-07)
+bones/38/rotation = Quaternion(0.56372833, 0.2370508, -0.015249083, 0.79106563)
+bones/38/scale = Vector3(0.9999534, 1.0000207, 1.0000255)
+bones/39/position = Vector3(8.855458e-06, 41.739964, 1.7121831e-06)
+bones/39/rotation = Quaternion(0.24017276, 0.023840858, -0.0058996053, 0.9704195)
+bones/39/scale = Vector3(1.0000011, 1.0000004, 1)
+bones/40/position = Vector3(1.9595004e-06, 16.473166, 1.7881742e-07)
+
+[editable path="Maze Model"]
+[editable path="player"]
+[editable path="player/AnimatedCharacter"]

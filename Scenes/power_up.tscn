@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://cmx7pnad6ujvr"]
+
+[ext_resource type="Script" uid="uid://buw2oimppfpu" path="res://Scripts/power_up.gd" id="1_p3i06"]
+[ext_resource type="PackedScene" uid="uid://bpjln83x7pj3q" path="res://assets/Power-Up-Revive.blend" id="2_6otjv"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5dy3k"]
+
+[node name="PowerUp" type="Node3D" unique_id=1913117928]
+script = ExtResource("1_p3i06")
+
+[node name="Power-Up-Revive" parent="." unique_id=1196163950 instance=ExtResource("2_6otjv")]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
+
+[node name="Area3D" type="Area3D" parent="." unique_id=1067407751]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1070186361]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0.048925817, 1.1035604, -0.28291583)
+shape = SubResource("BoxShape3D_5dy3k")

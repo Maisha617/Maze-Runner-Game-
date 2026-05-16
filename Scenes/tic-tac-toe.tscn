@@ -1,0 +1,181 @@
+[gd_scene format=3 uid="uid://jt2h7r5l8xeg"]
+
+[ext_resource type="Script" uid="uid://b0og0wt4r4l36" path="res://Scripts/tic_tac_toe.gd" id="1_rq2ue"]
+[ext_resource type="Texture2D" uid="uid://bndsj6jpgbuuj" path="res://TicTacToe_image/stone_square_grey.jpeg" id="2_78grn"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_of26v"]
+bg_color = Color(0.9596773, 0.96053475, 0.9609023, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.033853274, 0.03385329, 0.033853233, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rq2ue"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_78grn"]
+bg_color = Color(0.556953, 0.556953, 0.5569529, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3kjj7"]
+bg_color = Color(0.71004736, 0.71004736, 0.71004725, 1)
+
+[node name="TicTacToe" type="Node2D" unique_id=491612109]
+script = ExtResource("1_rq2ue")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1744334880]
+offset_left = -639.0
+offset_top = -307.0
+offset_right = 2003.0
+offset_bottom = 1919.0
+texture = ExtResource("2_78grn")
+
+[node name="GridContainer" type="GridContainer" parent="." unique_id=103269809]
+offset_left = 6.0
+offset_top = 19.0
+offset_right = 942.0
+offset_bottom = 960.0
+columns = 3
+
+[node name="Button" type="Button" parent="GridContainer" unique_id=1555699559]
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.06262216, 0.06262191, 0.062621966, 1)
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_of26v")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_rq2ue")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_78grn")
+theme_override_styles/hover = SubResource("StyleBoxFlat_3kjj7")
+
+[node name="Button2" type="Button" parent="GridContainer" unique_id=1835602694]
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.074845485, 0.0748452, 0.07484526, 1)
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_of26v")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_rq2ue")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_78grn")
+theme_override_styles/hover = SubResource("StyleBoxFlat_3kjj7")
+
+[node name="Button3" type="Button" parent="GridContainer" unique_id=1263915260]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.040736154, 0.04073596, 0.040735997, 1)
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_of26v")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_rq2ue")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_78grn")
+theme_override_styles/hover = SubResource("StyleBoxFlat_3kjj7")
+
+[node name="Button4" type="Button" parent="GridContainer" unique_id=319278185]
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.07082742, 0.070827134, 0.07082719, 1)
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_of26v")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_rq2ue")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_78grn")
+theme_override_styles/hover = SubResource("StyleBoxFlat_3kjj7")
+
+[node name="Button5" type="Button" parent="GridContainer" unique_id=1069543296]
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.08662946, 0.086629175, 0.086629234, 1)
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_of26v")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_rq2ue")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_78grn")
+theme_override_styles/hover = SubResource("StyleBoxFlat_3kjj7")
+
+[node name="Button6" type="Button" parent="GridContainer" unique_id=1260365128]
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.11119712, 0.11119675, 0.11119682, 1)
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_of26v")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_rq2ue")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_78grn")
+theme_override_styles/hover = SubResource("StyleBoxFlat_3kjj7")
+
+[node name="Button7" type="Button" parent="GridContainer" unique_id=170358961]
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.08662946, 0.086629175, 0.086629234, 1)
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_of26v")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_rq2ue")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_78grn")
+theme_override_styles/hover = SubResource("StyleBoxFlat_3kjj7")
+
+[node name="Button8" type="Button" parent="GridContainer" unique_id=146975956]
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.0687985, 0.0687982, 0.06879826, 1)
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_of26v")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_rq2ue")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_78grn")
+theme_override_styles/hover = SubResource("StyleBoxFlat_3kjj7")
+
+[node name="Button9" type="Button" parent="GridContainer" unique_id=100974715]
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.07082742, 0.070827134, 0.07082719, 1)
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_of26v")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_rq2ue")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_78grn")
+theme_override_styles/hover = SubResource("StyleBoxFlat_3kjj7")
+
+[node name="ResultLabel" type="Label" parent="." unique_id=1896637214]
+offset_left = 544.0
+offset_top = 341.0
+offset_right = 1328.0
+offset_bottom = 597.0
+theme_override_colors/font_color = Color(0.04755766, 0.047557645, 0.047557645, 1)
+theme_override_font_sizes/font_size = 158
+text = "You Win!"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="TopBannerLabel" type="Label" parent="." unique_id=613146203]
+offset_left = 424.0
+offset_top = 383.0
+offset_right = 1389.0
+offset_bottom = 548.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 120
+text = "\"First to 5 wins!\""
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScoreBoard" type="VBoxContainer" parent="." unique_id=1141605755]
+offset_left = 1496.0
+offset_top = 261.0
+offset_right = 1898.0
+offset_bottom = 539.0
+
+[node name="PlayerScoreLabel" type="Label" parent="ScoreBoard" unique_id=1049598563]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "Player Score "
+
+[node name="ComputerScoreLabel" type="Label" parent="ScoreBoard" unique_id=253985262]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "Computer Score "
+
+[node name="DrawScoreLabel" type="Label" parent="ScoreBoard" unique_id=425735118]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "Draw Score "
+
+[connection signal="pressed" from="GridContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="GridContainer/Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="GridContainer/Button3" to="." method="_on_button_3_pressed"]
+[connection signal="pressed" from="GridContainer/Button4" to="." method="_on_button_4_pressed"]
+[connection signal="pressed" from="GridContainer/Button5" to="." method="_on_button_5_pressed"]
+[connection signal="pressed" from="GridContainer/Button6" to="." method="_on_button_6_pressed"]
+[connection signal="pressed" from="GridContainer/Button7" to="." method="_on_button_7_pressed"]
+[connection signal="pressed" from="GridContainer/Button8" to="." method="_on_button_8_pressed"]
+[connection signal="pressed" from="GridContainer/Button9" to="." method="_on_button_9_pressed"]

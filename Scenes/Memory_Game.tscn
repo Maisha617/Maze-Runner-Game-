@@ -1,0 +1,271 @@
+[gd_scene format=3 uid="uid://ct3k8451hyf34"]
+
+[ext_resource type="Texture2D" uid="uid://dkyysljdfcpol" path="res://memory_game_images/memory_game_background.jpg" id="1_72jwy"]
+[ext_resource type="Script" uid="uid://beherdb37gudd" path="res://Scripts/memory_game.gd" id="2_7qwjc"]
+[ext_resource type="PackedScene" uid="uid://dcc2lwr302vci" path="res://Scenes/Card.tscn" id="3_7qwjc"]
+[ext_resource type="AudioStream" uid="uid://c2girlm32ahbr" path="res://Sounds/Card_Flip_Click.wav" id="4_npvs3"]
+[ext_resource type="AudioStream" uid="uid://7di2jji3trbo" path="res://Sounds/Card_Flip_Back.wav" id="5_qvff0"]
+[ext_resource type="AudioStream" uid="uid://th08vsq4ukft" path="res://Sounds/Game_Victory_Long.wav" id="6_ttq5r"]
+[ext_resource type="AudioStream" uid="uid://cgsx4wlnf71pf" path="res://Sounds/Game_Lose_Long.wav" id="7_bf0w2"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7qwjc"]
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_m7krg"]
+
+[node name="memory_game" type="Control" unique_id=1196440827]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("2_7qwjc")
+
+[node name="Background" type="Sprite2D" parent="." unique_id=229881441]
+position = Vector2(930.75, 529.00006)
+scale = Vector2(0.970052, 1.0000001)
+texture = ExtResource("1_72jwy")
+
+[node name="Control" type="Control" parent="." unique_id=752977712]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Card1" parent="Control" unique_id=310469464 instance=ExtResource("3_7qwjc")]
+position = Vector2(325, 372)
+
+[node name="Card2" parent="Control" unique_id=890125455 instance=ExtResource("3_7qwjc")]
+position = Vector2(625, 377)
+
+[node name="Card3" parent="Control" unique_id=213733798 instance=ExtResource("3_7qwjc")]
+position = Vector2(925, 380)
+
+[node name="Card4" parent="Control" unique_id=514361146 instance=ExtResource("3_7qwjc")]
+position = Vector2(1225, 380)
+
+[node name="Card5" parent="Control" unique_id=1490987071 instance=ExtResource("3_7qwjc")]
+position = Vector2(1525, 380)
+
+[node name="Card6" parent="Control" unique_id=2100792105 instance=ExtResource("3_7qwjc")]
+position = Vector2(325, 780)
+
+[node name="Card7" parent="Control" unique_id=559929062 instance=ExtResource("3_7qwjc")]
+position = Vector2(625, 780)
+
+[node name="Card8" parent="Control" unique_id=97100726 instance=ExtResource("3_7qwjc")]
+position = Vector2(925, 780)
+
+[node name="Card9" parent="Control" unique_id=1469393660 instance=ExtResource("3_7qwjc")]
+position = Vector2(1225, 780)
+
+[node name="Card10" parent="Control" unique_id=386948344 instance=ExtResource("3_7qwjc")]
+position = Vector2(1525, 780)
+
+[node name="TriesLabel" type="Label" parent="Control" unique_id=1605109312]
+layout_mode = 0
+offset_left = 724.0
+offset_top = 53.0
+offset_right = 1121.0
+offset_bottom = 153.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 4
+theme_override_constants/shadow_offset_y = 4
+theme_override_constants/outline_size = 4
+theme_override_constants/shadow_outline_size = 3
+theme_override_font_sizes/font_size = 53
+theme_override_styles/normal = SubResource("StyleBoxTexture_7qwjc")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="StartOverlay" type="Control" parent="." unique_id=661250775]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="StartOverlay" unique_id=1778114348]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -15.0
+offset_right = 1862.0
+offset_bottom = 1064.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0.36078432)
+
+[node name="TitleLabel" type="Label" parent="StartOverlay" unique_id=1532671131]
+layout_mode = 0
+offset_left = 497.0
+offset_top = 400.0
+offset_right = 1346.0
+offset_bottom = 594.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 1
+theme_override_constants/shadow_outline_size = 1
+theme_override_font_sizes/font_size = 100
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="InstructionsLabel" type="Label" parent="StartOverlay" unique_id=1401513031]
+layout_mode = 0
+offset_left = 509.0
+offset_top = 450.0
+offset_right = 1336.0
+offset_bottom = 704.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.85882354)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/outline_size = 1
+theme_override_constants/shadow_outline_size = 1
+theme_override_font_sizes/font_size = 40
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="StartOverlay" unique_id=636304377]
+libraries/ = SubResource("AnimationLibrary_m7krg")
+
+[node name="EndOverlay" type="Control" parent="." unique_id=874055279]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ColorRect" type="ColorRect" parent="EndOverlay" unique_id=1119459089]
+layout_mode = 0
+offset_top = -13.0
+offset_right = 1865.0
+offset_bottom = 1069.0
+mouse_filter = 2
+color = Color(0.079416595, 0.09306424, 0.09659349, 0.13333334)
+
+[node name="TitleLabel2" type="Label" parent="EndOverlay" unique_id=601093420]
+layout_mode = 0
+offset_left = 500.0
+offset_top = 490.0
+offset_right = 1349.0
+offset_bottom = 684.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/outline_size = 2
+theme_override_constants/shadow_outline_size = 3
+theme_override_font_sizes/font_size = 100
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="InstructionsLabel2" type="Label" parent="EndOverlay" unique_id=1346267180]
+layout_mode = 0
+offset_left = 514.0
+offset_top = 466.0
+offset_right = 1341.0
+offset_bottom = 720.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0.08, 0.08, 0.08, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 1
+theme_override_constants/shadow_outline_size = 2
+theme_override_font_sizes/font_size = 40
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="EndOverlay" unique_id=138164374]
+root_node = NodePath("../../StartOverlay")
+libraries/ = SubResource("AnimationLibrary_m7krg")
+
+[node name="Audio_Flip_Click" type="AudioStreamPlayer2D" parent="." unique_id=592842680]
+stream = ExtResource("4_npvs3")
+
+[node name="Audio_Flip_Back" type="AudioStreamPlayer2D" parent="." unique_id=1310041424]
+stream = ExtResource("5_qvff0")
+
+[node name="Audio_Win" type="AudioStreamPlayer2D" parent="." unique_id=886193841]
+stream = ExtResource("6_ttq5r")
+
+[node name="Audio_Lose" type="AudioStreamPlayer2D" parent="." unique_id=1262234693]
+stream = ExtResource("7_bf0w2")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=246124726]
+
+[node name="RevivePopup" type="Control" parent="CanvasLayer" unique_id=1609593245]
+visible = false
+layout_mode = 3
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -14.0
+offset_right = 714.0
+offset_bottom = 420.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="ColorRect" parent="CanvasLayer/RevivePopup" unique_id=917076853]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.5)
+
+[node name="Panel" type="Panel" parent="CanvasLayer/RevivePopup" unique_id=862785455]
+custom_minimum_size = Vector2(400, 250)
+layout_mode = 1
+offset_left = 750.0
+offset_top = 413.0
+offset_right = 1150.0
+offset_bottom = 663.0
+
+[node name="Label" type="Label" parent="CanvasLayer/RevivePopup/Panel" unique_id=1513565499]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 245.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = 2
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/outline_size = 2
+theme_override_constants/shadow_outline_size = 3
+theme_override_font_sizes/font_size = 30
+text = "Use your revive?"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/RevivePopup/Panel/Label" unique_id=1954562142]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -31.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="YesButton" type="Button" parent="CanvasLayer/RevivePopup/Panel/Label/HBoxContainer" unique_id=1904049487]
+modulate = Color(0, 1, 0, 1)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Yes"
+
+[node name="NoButton" type="Button" parent="CanvasLayer/RevivePopup/Panel/Label/HBoxContainer" unique_id=940535196]
+modulate = Color(1, 0, 0.039215688, 1)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "No"
+
+[connection signal="pressed" from="CanvasLayer/RevivePopup/Panel/Label/HBoxContainer/YesButton" to="." method="_on_yes_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/RevivePopup/Panel/Label/HBoxContainer/NoButton" to="." method="_on_no_button_pressed"]

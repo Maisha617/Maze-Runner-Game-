@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://b0qii6loxgjo6"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_sh265"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_4flbx"]
+sky_material = SubResource("ProceduralSkyMaterial_sh265")
+
+[sub_resource type="Environment" id="Environment_onrkg"]
+background_mode = 2
+sky = SubResource("Sky_4flbx")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_sh265"]
+radius = 0.4
+height = 1.8
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_4flbx"]
+custom_aabb = AABB(0, 0.9, 0, 0, 0, 0)
+radius = 0.4
+height = 1.8
+
+[node name="player" type="CharacterBody3D" unique_id=1965834822]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=276799682]
+environment = SubResource("Environment_onrkg")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2006807070]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+shape = SubResource("CapsuleShape3D_sh265")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CollisionShape3D" unique_id=973789059]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3487445, 0, 0.6316371)
+mesh = SubResource("CapsuleMesh_4flbx")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1489389669]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+current = true

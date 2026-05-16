@@ -1,0 +1,101 @@
+[gd_scene format=3 uid="uid://dss44k6f44now"]
+
+[ext_resource type="Script" uid="uid://xpa4yfhxxqn" path="res://Scripts/control.gd" id="1_t35c0"]
+[ext_resource type="Texture2D" uid="uid://ofcixrvp5tl5" path="res://assets/PowerUpIcon.png" id="2_om23v"]
+
+[node name="Control" type="Control" unique_id=18345301 groups=["ui"]]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_t35c0")
+
+[node name="PowerUpIcon" type="TextureRect" parent="." unique_id=1085882250]
+visible = false
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = 1746.0
+offset_right = 2770.0
+offset_bottom = 1024.0
+grow_horizontal = 0
+scale = Vector2(0.07999149, 0.079999834)
+texture = ExtResource("2_om23v")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1945691373]
+
+[node name="RevivePopup" type="Control" parent="CanvasLayer" unique_id=151343289 groups=["ui"]]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -14.0
+offset_right = 714.0
+offset_bottom = 420.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="ColorRect" parent="CanvasLayer/RevivePopup" unique_id=1027520107]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.5)
+
+[node name="Panel" type="Panel" parent="CanvasLayer/RevivePopup" unique_id=1625625528]
+custom_minimum_size = Vector2(400, 250)
+layout_mode = 1
+offset_left = 750.0
+offset_top = 413.0
+offset_right = 1150.0
+offset_bottom = 663.0
+
+[node name="Label" type="Label" parent="CanvasLayer/RevivePopup/Panel" unique_id=2075667527]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 245.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = 2
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/outline_size = 2
+theme_override_constants/shadow_outline_size = 3
+theme_override_font_sizes/font_size = 30
+text = "Use your revive?"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/RevivePopup/Panel/Label" unique_id=973737642]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -31.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="YesButton" type="Button" parent="CanvasLayer/RevivePopup/Panel/Label/HBoxContainer" unique_id=1762707766]
+modulate = Color(0, 1, 0, 1)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Yes"
+
+[node name="NoButton" type="Button" parent="CanvasLayer/RevivePopup/Panel/Label/HBoxContainer" unique_id=1933937825]
+modulate = Color(1, 0, 0.039215688, 1)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "No"
+
+[connection signal="pressed" from="CanvasLayer/RevivePopup/Panel/Label/HBoxContainer/YesButton" to="." method="_on_yes_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/RevivePopup/Panel/Label/HBoxContainer/NoButton" to="." method="_on_no_button_pressed"]

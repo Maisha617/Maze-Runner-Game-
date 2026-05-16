@@ -1,0 +1,48 @@
+# ==========================================
+# Godot 4.6 Core Ignores
+# ==========================================
+
+# The massive local cache folder containing imported assets and tokens.
+# NEVER commit this. It is recreated automatically when opening Godot.
+.godot/
+
+# Local editor settings unique to your computer
+project.godot.uid
+
+# ==========================================
+# Export & Build Ignores
+# ==========================================
+
+# Prevent accidentally committing your build presets or secret export keys
+export_presets.cfg
+
+# Dedicated build output directories (if you export your game to these folders)
+build/
+bin/
+dist/
+
+# ==========================================
+# C# / Mono Ignores (Only needed if using Godot .NET)
+# ==========================================
+.mono/
+*.suo
+*.ntvsca*
+*.njsproj
+*.sln
+*.csproj
+*.cs.uid
+.vs/
+.idea/
+.rider*/
+obj/
+
+# ==========================================
+# System & Tool Ignores
+# ==========================================
+
+# OS-specific garbage
+.DS_Store
+Thumbs.db
+
+# Automated crash logs
+crash_dumps/

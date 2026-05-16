@@ -1,0 +1,70 @@
+[gd_scene format=3 uid="uid://bohovl7ip1phr"]
+
+[ext_resource type="ArrayMesh" uid="uid://wmj1ra76dbjr" path="res://Ultimate Nature Pack - Jun 2019/OBJ/CommonTree_1.obj" id="1_rqvdd"]
+[ext_resource type="ArrayMesh" uid="uid://dnsk35b0okg2m" path="res://Ultimate Nature Pack - Jun 2019/OBJ/CommonTree_2.obj" id="2_4wpy3"]
+[ext_resource type="ArrayMesh" uid="uid://cvec76fh1uy11" path="res://Ultimate Nature Pack - Jun 2019/OBJ/CommonTree_3.obj" id="3_gqnbh"]
+[ext_resource type="ArrayMesh" uid="uid://gn0nfu3j806m" path="res://Ultimate Nature Pack - Jun 2019/OBJ/CommonTree_4.obj" id="4_q0rhs"]
+[ext_resource type="ArrayMesh" uid="uid://rewj0ou3ist2" path="res://Ultimate Nature Pack - Jun 2019/OBJ/CommonTree_5.obj" id="5_t0f5k"]
+[ext_resource type="ArrayMesh" uid="uid://b58628fgt4k1l" path="res://Ultimate Nature Pack - Jun 2019/OBJ/CommonTree_Dead_3.obj" id="6_1p120"]
+[ext_resource type="ArrayMesh" uid="uid://bdo1co3rcopl1" path="res://Ultimate Nature Pack - Jun 2019/OBJ/CommonTree_Dead_4.obj" id="7_ptvvf"]
+[ext_resource type="ArrayMesh" uid="uid://b1pvhahx6e7c" path="res://Ultimate Nature Pack - Jun 2019/OBJ/CommonTree_Dead_5.obj" id="8_wwotj"]
+[ext_resource type="ArrayMesh" uid="uid://c6rt055hsabv" path="res://Ultimate Nature Pack - Jun 2019/OBJ/CommonTree_Dead_1.obj" id="9_pwt44"]
+
+[node name="TreeLayout" type="Node3D" unique_id=2013653221]
+transform = Transform3D(25, 0, 0, 0, 25, 0, 0, 0, 25, 0, 0, 0)
+
+[node name="CommonTree1" type="MeshInstance3D" parent="." unique_id=1786077336]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.3032827, 0, -1.0469458)
+mesh = ExtResource("1_rqvdd")
+
+[node name="CommonTree2" type="MeshInstance3D" parent="." unique_id=171802720]
+transform = Transform3D(0.43068445, 0, 0.9025028, 0, 1, 0, -0.9025028, 0, 0.43068445, 0.9781971, 0, 0.44753468)
+mesh = ExtResource("2_4wpy3")
+
+[node name="CommonTree3" type="MeshInstance3D" parent="." unique_id=73485352]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6199293, 0, -2.4679515)
+mesh = ExtResource("3_gqnbh")
+
+[node name="CommonTree4" type="MeshInstance3D" parent="." unique_id=335570967]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9228773, 0, 2.0183678)
+mesh = ExtResource("4_q0rhs")
+
+[node name="CommonTree5" type="MeshInstance3D" parent="." unique_id=1637987312]
+transform = Transform3D(0.930737, 0, -0.36568916, 0, 1, 0, 0.36568916, 0, 0.930737, -0.5270252, 0, -0.9961958)
+mesh = ExtResource("5_t0f5k")
+
+[node name="CommonTreeDead3" type="MeshInstance3D" parent="." unique_id=873787741]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8213768, 0, -3.2292054)
+mesh = ExtResource("6_1p120")
+
+[node name="CommonTreeDead4" type="MeshInstance3D" parent="." unique_id=1544163230]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.39507484, 0, 0.9424627)
+mesh = ExtResource("7_ptvvf")
+
+[node name="CommonTreeDead5" type="MeshInstance3D" parent="." unique_id=1209041567]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.3588872, 0, -1.0976958)
+mesh = ExtResource("8_wwotj")
+
+[node name="CommonTreeDead6" type="MeshInstance3D" parent="." unique_id=843865787]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.107132, 0, -1.2397968)
+mesh = ExtResource("6_1p120")
+
+[node name="CommonTreeDead1" type="MeshInstance3D" parent="." unique_id=1182405320]
+transform = Transform3D(0.7833464, 0, 0.62158537, 0, 1, 0, -0.62158537, 0, 0.7833464, -3.1152864, 0, 1.5311649)
+mesh = ExtResource("9_pwt44")
+
+[node name="CommonTree6" type="MeshInstance3D" parent="." unique_id=899783345]
+transform = Transform3D(0.85912967, 0, 0.51175797, 0, 1, 0, -0.51175797, 0, 0.85912967, 2.355588, 0, -1.7269988)
+mesh = ExtResource("1_rqvdd")
+
+[node name="CommonTree7" type="MeshInstance3D" parent="." unique_id=291047403]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.1247368, 0, 2.5594)
+mesh = ExtResource("4_q0rhs")
+
+[node name="CommonTree8" type="MeshInstance3D" parent="." unique_id=1042935751]
+transform = Transform3D(0.5305851, 0, -0.84763163, 0, 1, 0, 0.84763163, 0, 0.5305851, 0.90413094, 0, 2.6476703)
+mesh = ExtResource("2_4wpy3")
+
+[node name="CommonTreeDead7" type="MeshInstance3D" parent="." unique_id=463180768]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.2560053, 0, 0.29252958)
+mesh = ExtResource("8_wwotj")

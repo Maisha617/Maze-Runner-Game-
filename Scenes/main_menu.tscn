@@ -1,0 +1,120 @@
+[gd_scene format=3 uid="uid://dh5n0bfosii47"]
+
+[ext_resource type="Texture2D" uid="uid://d1fxfquvtbn81" path="res://menu_background/thumb-1920-691531.jpg" id="1_28flt"]
+[ext_resource type="Script" uid="uid://xbulqansahu8" path="res://Scripts/main_menu.gd" id="1_48xlc"]
+[ext_resource type="AudioStream" uid="uid://h7v6jqbryn08" path="res://Sounds/main-menu-music.wav" id="2_48xlc"]
+[ext_resource type="AudioStream" uid="uid://m7crftdqdk0l" path="res://Sounds/main_menu_click.wav" id="4_ce3w2"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_erv1k"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 18
+corner_radius_top_right = 18
+corner_radius_bottom_right = 18
+corner_radius_bottom_left = 18
+shadow_size = 5
+shadow_offset = Vector2(0, 3.41)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_28flt"]
+bg_color = Color(0.98234254, 0.9823423, 0.9823424, 1)
+corner_radius_top_left = 18
+corner_radius_top_right = 18
+corner_radius_bottom_right = 18
+corner_radius_bottom_left = 18
+
+[node name="MainMenu" type="Control" unique_id=959391352]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_48xlc")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=735248]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("1_28flt")
+stretch_mode = 6
+
+[node name="Label" type="Label" parent="TextureRect" unique_id=867930424]
+layout_mode = 0
+offset_left = 518.0
+offset_top = 35.0
+offset_right = 1481.0
+offset_bottom = 230.0
+theme_override_font_sizes/font_size = 70
+text = "The Maze Runner "
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=455465674]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -292.0
+offset_top = -178.0
+offset_right = 348.0
+offset_bottom = 275.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 8
+
+[node name="Button" type="Button" parent="VBoxContainer" unique_id=792985713]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 60
+theme_override_styles/normal = SubResource("StyleBoxFlat_erv1k")
+action_mode = 0
+text = "Start Game "
+
+[node name="Button2" type="Button" parent="VBoxContainer" unique_id=191171296]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 60
+theme_override_styles/normal = SubResource("StyleBoxFlat_28flt")
+text = "Tutorial "
+
+[node name="Button3" type="Button" parent="VBoxContainer" unique_id=589360436]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 60
+theme_override_styles/normal = SubResource("StyleBoxFlat_erv1k")
+text = "About Us"
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1349240261]
+modulate = Color(1, 1, 1, 0)
+self_modulate = Color(1, 1, 1, 0.015686275)
+z_index = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.003823728, 0.0039757383, 0.003810268, 1)
+
+[node name="Main_Menu_Music" type="AudioStreamPlayer2D" parent="." unique_id=2128292966]
+stream = ExtResource("2_48xlc")
+autoplay = true
+
+[node name="Button_Click" type="AudioStreamPlayer2D" parent="." unique_id=796256211]
+stream = ExtResource("4_ce3w2")
+
+[connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/Button" to="." method="_any_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/Button2" to="." method="_any_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/Button3" to="." method="_on_button_3_pressed"]

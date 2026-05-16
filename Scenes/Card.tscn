@@ -1,0 +1,70 @@
+[gd_scene format=3 uid="uid://dcc2lwr302vci"]
+
+[ext_resource type="Script" uid="uid://cispemkva4cc2" path="res://Scripts/memory_cards.gd" id="1_3p273"]
+[ext_resource type="Texture2D" uid="uid://cxkcr6x1ujwcp" path="res://memory_game_images/back_card.png" id="1_pnb5n"]
+
+[sub_resource type="Animation" id="Animation_h8wm0"]
+resource_name = "flip_to_back"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1e-05, 1), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_3m7nw"]
+resource_name = "flip_to_front"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1e-05, 1), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_pnb5n"]
+_data = {
+&"flip_to_back": SubResource("Animation_h8wm0"),
+&"flip_to_front": SubResource("Animation_3m7nw")
+}
+
+[node name="Card" type="Node2D" unique_id=379199227]
+script = ExtResource("1_3p273")
+
+[node name="CardTemplate" type="TextureButton" parent="." unique_id=310469464]
+offset_left = -111.0
+offset_top = -138.0
+offset_right = 111.0
+offset_bottom = 161.0
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="FrontTexture" type="TextureRect" parent="CardTemplate" unique_id=591240903]
+layout_mode = 0
+offset_right = 222.0
+offset_bottom = 299.0
+expand_mode = 3
+
+[node name="BackTexture" type="TextureRect" parent="CardTemplate" unique_id=466239901]
+layout_mode = 0
+offset_right = 222.0
+offset_bottom = 299.0
+texture = ExtResource("1_pnb5n")
+expand_mode = 3
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1648068801]
+root_node = NodePath("../CardTemplate")
+libraries/ = SubResource("AnimationLibrary_pnb5n")
